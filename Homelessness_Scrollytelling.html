@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html id="top">
+<head>
+    <meta charset="UTF-8" />
+    <title>Scrollytelling Assignment</title>
+	
+   	<script src="https://d3js.org/d3.v4.min.js"></script>
+   	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500" rel="stylesheet">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	
+	<!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+	
+    <style>
+
+		p {
+			font-family: 'Open Sans', sans-serif;
+			color:#353536;
+			font-weight:300;
+		}
+
+		svg {
+			width:100%;
+			height:600px;
+			padding-left:5%;
+			padding-right:50px;		
+		}
+		
+		h1 {
+			font-size:60px;
+			font-weight:200;
+			line-height:1.3;
+		}
+		
+		#firstvisualdiv, #secondvisualdiv, #fourthvisualdiv {
+        position: -webkit-sticky;
+          position: sticky;
+          top: -1px;
+    	}
+    	
+   .text1opacity, .text2opacity, .text3opacity {
+        font-size:25px;
+        fill:gray;
+        opacity:0;
+        transition: opacity 0.8s;
+         -webkit-transition: opacity 0.8s;
+        }
+		
+	.img1opacity, .img2opacity, .img3opacity {
+        opacity:0;
+        transition: opacity 0.8s;
+         -webkit-transition: opacity 0.8s;
+        }
+
+		.active {
+        	opacity:1;
+    	}
+
+
+
+	</style>
+</head>
+
+
+<body>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('image/1Title.png')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Tackling Homelessness At Its Roots:</h1>
+            <h2 class="subheading"> Author: Jingyi Liu & Akshay Choudhary</h2>
+            <span class="meta">Under Current NYC Coronavirus Crisis  
+              <br>Storytelling Midterm Presentation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Story Begins -->
+  <main role="main" class="container" >
+     <div class="row">
+     	<div class="col-10">
+     		<br><br>
+     		<h1>Rent Burden, Eviction, & Homelessness</h1>
+     		<hr>
+     	</div>
+     </div>
+     <div class="row">
+     	<div class="col-4">
+     	<br><br>
+		<h2>Drivers of Homelessness</h2>
+		<br><br>
+     	<p>When it comes to visualizations, we first want to show reasons why people become homeless. For example, most children come to shelters because of domestic violence and family conflict. In contrast, the main driver for a homeless adult is rent burden & eviction, accounting for 30% of the total homeless population.</p>    	
+     	<p>When the user clicks on a certain group of people, we plan to have a pop-up describing more details. Like what are the specific reasons contributing to <span style="color: #ebcc34;font-size:20px"><b>yellow-point</b></span> family conflict? Sources for data and information come from a council-published PDF online called “Our Homelessness Crisis the Case for Change.” </p>   	
+     	<p>Similarly, for <span style="color: #429bf5;font-size:20px"><b>blue points</b></span>, we will talk about the lack of allowance for low-income people, versus increased rent burden at NYC. This visualization will be followed by a paragraph arguing that rent burden & eviction might cause more homeless population under the current coronavirus crisis at NYC, due to higher-rate unemployment and a possible economic recession. And our goal is to reveal this issue and provide possible solutions.</p>
+     	</div>
+     	<div class="col-8">
+     		<div id="firstvisualdiv">
+			<img class="mySlides" src="image/2.driver.jpg" width="700" hspace="50" vspace="60">
+            <img class="mySlides" src="image/3.driver.jpg" width="700" hspace="50" vspace="60">
+            <img class="mySlides" src="image/4.driver.jpg" width="700" hspace="50" vspace="60">
+     		</div>
+     	</div>
+     	<div class="col-4">
+     	<br><br>
+		<h2 id="img1">NYC Rent and Income Over the Years</h2>
+     	<br><br>
+     	<p>Rent in New York is one of the highest ones in the U.S. Over the years, the rental price keeps growing dramatically, despite moderate increases in salaries. The increased pressure on rent burden is especially obvious for low-income people. Although rent keeps increasing, the allowance or subsidies to help homeless people rent accommodation doesn’t change.</p>
+     	<p id="text1">Data for this graph mainly comes from NYC Open Data and American Community Survey (ACS).</p>
+     	</div>
+     	<div class="col-8">
+     		<div id="secondvisualdiv">
+     		</div>
+     	</div>
+		<div class="col-4">
+     	<br><br>
+		<h2 id="img2">Mapping Rent Burden & Eviction </h2>
+     	<br><br>
+		<p>To this end, we are interested in how many people are facing rent burdens and where they are located. We will plot a map with two layers. </p>
+     	<p id="text2">The rent burden layer has different colors for different community districts, and the darkness represents the burden level. The eviction layers show bubbles where evictions happen, and the bubble size represents frequency.</p>
+     	</div>
+     	<div class="col-8">
+     		<div id="thirdvisualdiv">
+     		</div>
+     	</div>
+		<div class="col-4">
+     	<br><br>
+		<h2 id="img3">Not Enough Saving Under Crisis  </h2>
+     	<br><br>
+     	<p>After seeing previous visualizations, we already know who severe the rent burden is in NYC. Unfortunately, the rent burden will probably affect more people under the current coronavirus crisis. Many companies in fields like transportation, restaurant, and tourism have to lay off people. Unemployed people with insufficient savings have to face eviction risk.</p>
+     	<p>Looking at columns of household annual income & median all household saving, we find that low-income people don’t usually have habit saving money.  Many of them spend more than 50% income on rent. Imagine that when they lose a job, there will be huge financial pressure on them, in the worst scenario leading to eviction and homelessness. </p>
+     	<p id="text3">We will <span style="color: #ebcc34;font-size:30px"><b>highlight</b></span> some important trends and data on this graph, so when the user clicks on the highlights, they can see more analysis. </p>
+		</div>
+     	<div class="col-8">
+     		<div id="fourthvisualdiv">
+     		</div>
+     	</div>
+		<div class="col-12">
+		<br><br>
+		<h2>Recommendations </h2>
+     	<p>In the end, we aim to provide some potential solutions to policymakers, preventing homelessness due to rent burden and eviction, especially under the crisis of coronavirus. </p>
+     	<p>•	Policy reform for renters in NYC 
+                •	Eviction prevention
+                •	Universal basic income 
+                •	Rent stabilization & control 
+        </p>
+     	<p>•	Equitable distribution in protections and services
+                •	More services should be available in hardest hit neighborhoods and population groups, for example the incarcerated and children.  
+        </p>
+		</div>
+     </div>
+  </main><!-- /.container -->
+  
+  <a href="#top" style="margin-left:80px">Jump to top of page</a>
+  <br><br>
+</body>
+
+<footer class="footer">
+       <p style="margin-left:80px"><i>Prepared for Big Data Assignment 5: Jingyi Liu & Akshay Choudhary . &nbsp &nbsp &nbsp &nbsp &nbsp  Storytelling by: HTML, CSS, Javascript D3, & Bootstrap. 2020-04-09.</i><p>
+</footer>
+
+<script type="text/javascript">
+
+
+   var svg = d3.select("div#secondvisualdiv")
+						   .append("svg")
+						   .attr("viewBox", "0 0 1200 800")
+  						   .attr("preserveAspectRatio", "xMinYMid")  
+						   
+				svg.append("image") 
+				.attr("xlink:href", "image/5stock_graph.jpg")
+                .attr("height", 650)
+                .attr("x",40)
+                .attr("y",0)
+				.attr("class", "img1opacity");
+				
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 740)
+    			.attr("text-anchor", "middle")
+    			.text("Data & Info. Source")
+    			.attr("class", "text1opacity")	
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 780)
+    			.attr("text-anchor", "middle")
+    			.text("NYC Open Data: https://opendata.cityofnewyork.us/")
+    			.attr("class", "text1opacity")	
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 820)
+    			.attr("text-anchor", "middle")
+    			.text("Coalition for Homelessness 2020: https://www.coalitionforthehomeless.org/state-of-the-homeless/")
+    			.attr("class", "text1opacity")
+
+                 svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 860)
+    			.attr("text-anchor", "middle")
+    			.text("American Community Survey (ACS) 2018: https://www.census.gov/programs-surveys/acs")
+    			.attr("class", "text1opacity")				
+				
+   var svg = d3.select("div#thirdvisualdiv")
+						   .append("svg")
+						   .attr("viewBox", "0 0 1200 800")
+  						   .attr("preserveAspectRatio", "xMinYMid")  
+						   
+				svg.append("image") 
+				.attr("xlink:href", "image/6spatial.jpg")
+                .attr("height", 700)
+                .attr("x",350)
+                .attr("y",0)
+				.attr("class", "img2opacity");
+				
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 740)
+    			.attr("text-anchor", "middle")
+    			.text("Data & Info. Source")
+    			.attr("class", "text2opacity")	
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 780)
+    			.attr("text-anchor", "middle")
+    			.text("Eviction Data @ NYC Open Data: https://data.cityofnewyork.us/City-Government/Evictions/6z8x-wfk4")
+    			.attr("class", "text2opacity")	
+
+                 svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 820)
+    			.attr("text-anchor", "middle")
+    			.text("ACS 5-year Estimates 2018: https://www.census.gov/programs-surveys/acs")
+    			.attr("class", "text2opacity")	
+
+var svg = d3.select("div#fourthvisualdiv")
+						   .append("svg")
+						   .attr("viewBox", "0 0 1200 800")
+  						   .attr("preserveAspectRatio", "xMinYMid")  
+						   
+				svg.append("image") 
+				.attr("xlink:href", "image/8.saving.jpg")
+                .attr("height", 630)
+                .attr("x",0)
+                .attr("y",0)
+				.attr("class", "img3opacity");
+				
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 740)
+    			.attr("text-anchor", "middle")
+    			.text("Data & Info. Source")
+    			.attr("class", "text3opacity")	
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 780)
+    			.attr("text-anchor", "middle")
+    			.text("NYC Income Percentile: https://statisticalatlas.com/county-subdivision/New-York")
+    			.attr("class", "text3opacity")	
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 820)
+    			.attr("text-anchor", "middle")
+    			.text("Median Savings by Income: https://www.magnifymoney.com/blog/news/average-american-savings")
+    			.attr("class", "text3opacity")		
+
+                svg.append("text")
+    			.attr("x", 650)
+    			.attr("y", 860)
+    			.attr("text-anchor", "middle")
+    			.text("Percentage of Income Spent on Rent: Page 29, CFH-State-of-the-Homeless-2017.pdf ")
+    			.attr("class", "text3opacity")	
+
+
+   
+   var controller = new ScrollMagic.Controller();
+    
+    	new ScrollMagic.Scene({triggerElement: "#text1"})
+        	.setClassToggle(".text1opacity", "active") 
+        	.addTo(controller);
+        
+    	new ScrollMagic.Scene({triggerElement: "#text2"})
+        	.setClassToggle(".text2opacity", "active") 
+        	.addTo(controller);
+                        
+		new ScrollMagic.Scene({triggerElement: "#text3"})
+        	.setClassToggle(".text3opacity", "active") 
+        	.addTo(controller);
+			
+		new ScrollMagic.Scene({triggerElement: "#img1"})
+        	.setClassToggle(".img1opacity", "active") 
+        	.addTo(controller);
+        
+    	new ScrollMagic.Scene({triggerElement: "#img2"})
+        	.setClassToggle(".img2opacity", "active") 
+        	.addTo(controller);
+			
+		new ScrollMagic.Scene({triggerElement: "#img3"})
+        .setClassToggle(".img3opacity", "active") 
+        .addTo(controller);
+		
+			
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none"; 
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1} 
+  x[slideIndex-1].style.display = "block"; 
+  setTimeout(carousel, 1000); // Change image every 2 seconds 
+}								
+</script>
+</body>
+</html>
